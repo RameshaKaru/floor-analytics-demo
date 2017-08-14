@@ -14,6 +14,22 @@ var numOfFloors;
 var isLive = true;
 var isPause = false;
 
+var tempGraph={graph:{}};
+var motionGraph={graph:{}};
+var humidityGraph={graph:{}};
+var lightGraph={graph:{}};
+
+var tempChartData = [];
+tempChartData[0] = [];
+var motionChartData = [];
+motionChartData[0] = [];
+var humidityChartData = [];
+humidityChartData[0] = [];
+var lightChartData = [];
+lightChartData[0] = [];
+
+var palette = new Rickshaw.Color.Palette({scheme: "classic9"});
+
 /**
  * To show received data
  * @param sliderVal value of slider.
@@ -43,9 +59,9 @@ function displyaData(floorId,data) {
     var light;
     var motion;
     if(data.light<500){
-        light = "ON";
+        light = "OFF";
     }else if (data.light>500){
-        light="OFF";
+        light="ON";
     }
 
     if (data.motion>0.5){
@@ -137,12 +153,127 @@ function handleRealTimeData(data) {
         } else {
             floorData[fId].push(data);
         }
-
         if(isLive){
             rangeSlider.bootstrapSlider('setValue', sliderPointMax);
             displyaData(floorId, data);
         }
+        updateGraphs(data);
     }
+}
+
+function updateGraphs(data) {
+    console.log(data);
+    tempChartData[0].push({
+        x: parseInt(data.time/1000),
+        y: parseFloat(data.temperature)
+    });
+    tempChartData[0].shift();
+    tempGraph.graph.update();
+
+    motionChartData[0].push({
+        x: parseInt(data.time/1000),
+        y: parseFloat(data.motion)
+    });
+    motionChartData[0].shift();
+    motionGraph.graph.update();
+
+    humidityChartData[0].push({
+        x: parseInt(data.time/1000),
+        y: parseFloat(data.humidity)
+    });
+    humidityChartData[0].shift();
+    humidityGraph.graph.update();
+
+    lightChartData[0].push({
+        x: parseInt(data.time/1000),
+        y: parseFloat(data.light)
+    });
+    lightChartData[0].shift();
+    lightGraph.graph.update();
+}
+
+function processChartContext(){
+    var tempChartName=["Temperature"];
+    processMultiChart("#div-chart-temp","chart_temp",tempChartData,tempChartName,tempGraph,"y_axis_temp","legend_temp");
+    var motionChartName=["Motion"];
+    processMultiChart("#div-chart-motion","chart_motion",motionChartData,motionChartName,motionGraph,"y_axis_motion","legend_motion");
+    var humidityChartName=["Humidity"];
+    processMultiChart("#div-chart-humidity","chart_humidity",humidityChartData,humidityChartName,humidityGraph,"y_axis_humidity","legend_humidity");
+    var lightChartName=["Light level"];
+    processMultiChart("#div-chart-light","chart_light",lightChartData,lightChartName,lightGraph,"y_axis_light","legend_light");
+}
+
+function processMultiChart(outerDiv,chartDiv,chartData,name,graph,yAxis,legend) {
+
+    var tNow = new Date().getTime() / 1000;
+    var numOfGraphs = chartData.length;
+
+    for (var j = 0; j < numOfGraphs; j++) {
+        for (var i = 0; i < 30; i++) {
+            chartData[j].push({
+                x: tNow - (30 - i) * 15,
+                y: parseFloat(0)
+            });
+        }
+    }
+
+    series=[];
+    for(var i=0;i<numOfGraphs;i++) {
+        obj = {
+            'color':palette.color(),
+            'data':chartData[i],
+            'name': name[i]
+        }
+        series.push(obj);
+    }
+
+    graph.graph = new Rickshaw.Graph({
+        element: document.getElementById(chartDiv),
+        width: $(outerDiv).width() - 50,
+        height: 300,
+        stack: false,
+        padding: {top: 0.2, left: 0.0, right: 0.0, bottom: 0.2},
+        renderer: "area",
+        interpolation: "linear",
+        padding: {top: 0.2, left: 0.0, right: 0.0, bottom: 0.2},
+        xScale: d3.time.scale(),
+        series: series
+    });
+
+    graph.graph.render();
+
+    var xAxis = new Rickshaw.Graph.Axis.Time({
+        graph: graph.graph
+    });
+
+    xAxis.render();
+
+    new Rickshaw.Graph.Axis.Y({
+        graph: graph.graph,
+        orientation: 'left',
+        height: 300,
+        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+        element: document.getElementById(yAxis)
+    });
+
+    new Rickshaw.Graph.HoverDetail({
+        graph: graph.graph,
+        formatter: function (series, x, y) {
+            var date = '<span class="date">' + moment(x * 1000).format('Do MMM YYYY h:mm:ss a') + '</span>';
+            var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+            return swatch + series.name + ": " + parseInt(y) + '<br>' + date;
+        }
+    });
+
+    var legendObj = new Rickshaw.Graph.Legend( {
+        graph: graph.graph,
+        element: document.getElementById(legend)
+    } );
+
+    var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight({
+        graph: graph.graph,
+        legend: legendObj
+    });
 }
 
 /**
@@ -434,6 +565,7 @@ var updateAlertCount = function () {
 
 $(document).ready(function () {
 
+    processChartContext();
     $(".slider-wrapper").show(1000);
     $('#historic-toggle').addClass("live");
     buildingId = getUrlVar("buildingId");
@@ -526,3 +658,5 @@ $(document).on( "click", ".view-analytics", function(e) {
     e.stopPropagation();
 
 });
+
+

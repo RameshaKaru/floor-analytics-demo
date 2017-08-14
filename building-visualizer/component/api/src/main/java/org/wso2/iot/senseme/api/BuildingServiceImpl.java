@@ -84,8 +84,8 @@ public class BuildingServiceImpl implements BuildingService {
             if (id != 0) {
                 String buildingRole = String.format(DeviceTypeConstants.BUILDING_ROLE, id);
                 String buildingGroupName = String.format(DeviceTypeConstants.BUILDING_GROUP_NAME, id);
-                addRolesForBuildingsAndFloors(buildingRole);
-                createAndAddGroups(buildingGroupName, buildingRole, "Group for the " + id);
+                APIUtil.addRolesForBuildingsAndFloors(buildingRole);
+                APIUtil.createAndAddGroups(buildingGroupName, buildingRole, "Group for the " + id);
                 return Response.status(Response.Status.OK).entity(id).build();
             } else {
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode()).build();
@@ -294,8 +294,8 @@ public class BuildingServiceImpl implements BuildingService {
             if (status) {
                 String floorRole = String.format(DeviceTypeConstants.FLOOR_ROLE, buildingId, floorId);
                 String floorGroupName = String.format(DeviceTypeConstants.FLOOR_GROUP_NAME, buildingId, floorId);
-                addRolesForBuildingsAndFloors(floorRole);
-                createAndAddGroups(floorGroupName, floorRole,
+                APIUtil.addRolesForBuildingsAndFloors(floorRole);
+                APIUtil.createAndAddGroups(floorGroupName, floorRole,
                         "Group for floor " + floorId + " in the building " + buildingId);
                 return Response.status(Response.Status.OK.getStatusCode()).build();
             } else {
@@ -697,61 +697,6 @@ public class BuildingServiceImpl implements BuildingService {
                     .build();
         } finally {
             buildingDAOManager.getBuildingDAOHandler().closeConnection();
-        }
-    }
-
-    /**
-     * Create user role for building and floors.
-     *
-     * @param role : Role that need to be created
-     * @throws UserStoreException User Store Exception
-     */
-    private void addRolesForBuildingsAndFloors(String role) throws UserStoreException {
-        Permission realTimeAnalytics = new Permission(DeviceTypeConstants.REALTIME_ANALYTICS_PERMISSION,
-                CarbonConstants.UI_PERMISSION_ACTION);
-
-        UserStoreManager userStoreManager = APIUtil.getUserStoreManager();
-        if (userStoreManager != null) {
-            if (!userStoreManager.isExistingRole(role)) {
-                userStoreManager.addRole(role, null, new Permission[] { realTimeAnalytics });
-            }
-        } else {
-            log.error("User Store Manager cannot found.");
-        }
-    }
-
-    /**
-     * Create device groups for building and floor and assign the given list of devices.
-     *
-     * @param groupName:  The name of the group
-     * @param role        : The role associated with the group
-     * @param description : The description for the group
-     * @throws DeviceTypeException Device Type Exception
-     */
-    private void createAndAddGroups(String groupName, String role, String description) throws DeviceTypeException {
-        try {
-            DeviceGroup buildingFloorGroup;
-            GroupManagementProviderService groupManagementProviderService = APIUtil.getGroupManagementProviderService();
-
-            if (groupManagementProviderService.getGroup(groupName) != null) {
-                return;
-            }
-
-            buildingFloorGroup = new DeviceGroup();
-            buildingFloorGroup.setOwner(PrivilegedCarbonContext.getThreadLocalCarbonContext().getUsername());
-            buildingFloorGroup.setName(groupName);
-            buildingFloorGroup.setDescription(description);
-            groupManagementProviderService.createGroup(buildingFloorGroup, role,
-                    new String[] { DeviceTypeConstants.REALTIME_ANALYTICS_PERMISSION });
-            buildingFloorGroup = groupManagementProviderService.getGroup(groupName);
-            groupManagementProviderService
-                    .manageGroupSharing(buildingFloorGroup.getGroupId(), new ArrayList<>(Arrays.asList(role)));
-        } catch (GroupManagementException e) {
-            throw new DeviceTypeException("Error occurred while creting group with the name " + groupName, e);
-        } catch (GroupAlreadyExistException e) {
-            throw new DeviceTypeException("A group with the name " + groupName + " already exists.", e);
-        } catch (RoleDoesNotExistException e) {
-            throw new DeviceTypeException("A role with the name " + role + " does not exist", e);
         }
     }
 

@@ -40,3 +40,5 @@ select buildingId, floorId, "High_Temperature_WITH_Motion" as type, temperature 
 from dataOut[motion == 0 and light < 500]
 select buildingId, floorId, "Light_ON_WITH_NO_Motion" as type, light as value, "The floor seems to be empty. But lights are switched ON. Please switch off the lights." as information, timeStamp insert into alertOut;
 
+from dataIn[light < 100]
+select buildingId, floorId, "Very_Low_Light" as type, light as value, "Area is too dark. Please turn on lights." as information, timeStamp insert into alertOut;

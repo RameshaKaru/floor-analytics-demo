@@ -255,15 +255,17 @@ function hidePopup() {
      * @param message Message that need to be passed in the notification.
      * @param status Status level of the message
      * @param timeout Time-out to close this particular alert
-     * @param pos Position to display the alery
+     * @param pos Position to display the alert
      */
     function notifyUser(message, status, timeout, pos) {
-        $.UIkit.notify({
-            message: message,
-            status: status,
-            timeout: timeout,
-            pos: pos
-        });
+        if (status !== "danger") { //Temporally suppress error message
+            $.UIkit.notify({
+                               message: message,
+                               status: status,
+                               timeout: timeout,
+                               pos: pos
+                           });
+        }
     }
 
     /**
@@ -658,9 +660,9 @@ function hidePopup() {
  * Add a new device;
  */
 function addDevice () {
-    var deviceIdValue = document.getElementsByName('deviceId')[0].value;;
-    var xCordValue = document.getElementsByName('xCord')[0].value;;
-    var yCordValue = document.getElementsByName('yCord')[0].value;;
+    var deviceIdValue = document.getElementsByName('deviceId')[0].value;
+    var xCordValue = document.getElementsByName('xCord')[0].value;
+    var yCordValue = document.getElementsByName('yCord')[0].value;
     var floorIdValue = $("#image").attr("floorId");
     var buildingIdValue = $("#image").attr("buildingId");
     var deviceType = $("#deviceType").val();
@@ -753,7 +755,7 @@ function getSensorConfiguration() {
             console.log(data);
             for (var key in sensorConfigs) {
                 if (sensorConfigs.hasOwnProperty(key)) {
-                    sensorValues[key]={};
+                    sensorValues[key]=[];
                 }
             }
             console.log(data);

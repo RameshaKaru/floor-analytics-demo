@@ -371,7 +371,8 @@
 
 		<!-- Carbon Device Management -->
         <carbon.device.mgt.version>3.0.37</carbon.device.mgt.version>
-	<carbon.device.mgt.plugin.version>4.0.34</carbon.device.mgt.plugin.version>
+        <carbon.device.mgt.plugin.version>4.0.34</carbon.device.mgt.plugin.version>
+
 
         <project-base-package>${project.groupId}.senseme</project-base-package>
         <project-package>senseme</project-package>
