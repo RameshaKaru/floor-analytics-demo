@@ -56,8 +56,12 @@
                             <publishArtifactRepository>true</publishArtifactRepository>
                             <featureArtifacts>
                                 <featureArtifactDef>
-                                    org.wso2.iot:org.wso2.iot.senseme.feature:${org.wso2.iot.version}
+                                    org.wso2.iot:org.wso2.iot.senseme.ui.feature:${org.wso2.iot.version}
                                 </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.iot:org.wso2.iot.senseme.backend.feature:${org.wso2.iot.version}
+                                </featureArtifactDef>
+                                
                             </featureArtifacts>
                         </configuration>
                     </execution>
@@ -74,13 +78,62 @@
                             <destination>${basedir}/../wso2/components</destination>
                             <deleteOldProfileFiles>false</deleteOldProfileFiles>
                             <features>
+				<!-- Features -->
                                 <feature>
-                                    <id>org.wso2.iot.senseme.feature.group</id>
+                                    <id>org.wso2.iot.senseme.ui.feature.group</id>
+                                    <version>${org.wso2.iot.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.iot.senseme.backend.feature.group</id>
+                                    <version>${org.wso2.iot.version}</version>
+                                </feature>
+                                
+                            </features>
+                        </configuration>
+                    </execution>
+ 		    <execution>
+                        <id>manager-feature-install</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>p2-profile-gen</goal>
+                        </goals>
+                        <configuration>
+                            <profile>device-manager</profile>
+                            <metadataRepository>file:${basedir}/target/p2-repo</metadataRepository>
+                            <artifactRepository>file:${basedir}/target/p2-repo</artifactRepository>
+                            <destination>${basedir}/../wso2/components</destination>
+                            <deleteOldProfileFiles>false</deleteOldProfileFiles>
+                            <features>
+				<!-- UI Features -->
+                                <feature>
+                                    <id>org.wso2.iot.senseme.ui.feature.group</id>
                                     <version>${org.wso2.iot.version}</version>
                                 </feature>
                             </features>
                         </configuration>
                     </execution>
+ 		    <execution>
+                        <id>backend-feature-install</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>p2-profile-gen</goal>
+                        </goals>
+                        <configuration>
+                            <profile>device-backend</profile>
+                            <metadataRepository>file:${basedir}/target/p2-repo</metadataRepository>
+                            <artifactRepository>file:${basedir}/target/p2-repo</artifactRepository>
+                            <destination>${basedir}/../wso2/components</destination>
+                            <deleteOldProfileFiles>false</deleteOldProfileFiles>
+                            <features>
+			    <!-- BE Features -->
+                                <feature>
+                                    <id>org.wso2.iot.senseme.backend.feature.group</id>
+                                    <version>${org.wso2.iot.version}</version>
+                                </feature>
+                            </features>
+                        </configuration>
+                    </execution>
+ 		    
                 </executions>
             </plugin>
             <plugin>
@@ -97,16 +150,15 @@
                                          dir="../wso2/components/default/configuration/org.eclipse.equinox.simpleconfigurator">
                                     <include name="**/bundles.info"/>
                                 </replace>
-                                <copy todir="../wso2/analytics/repository/deployment/server/carbonapps">
-                                    <fileset dir="../repository/deployment/server/carbonapps">
-                                        <include name="*.car"/>
-                                    </fileset>
-                                </copy>
-                                <copy todir="../wso2/analytics/conf/datasources">
-                                    <fileset dir="../conf/datasources">
-                                        <include name="senseme-datasources.xml"/>
-                                    </fileset>
-                                </copy>
+                                <replace token="false" value="true"
+                                         dir="../wso2/components/device-manager/configuration/org.eclipse.equinox.simpleconfigurator">
+                                    <include name="**/bundles.info"/>
+                                </replace>
+                                <replace token="false" value="true"
+                                         dir="../wso2/components/device-backend/configuration/org.eclipse.equinox.simpleconfigurator">
+                                    <include name="**/bundles.info"/>
+                                </replace>
+                                
                             </tasks>
                         </configuration>
                         <goals>
