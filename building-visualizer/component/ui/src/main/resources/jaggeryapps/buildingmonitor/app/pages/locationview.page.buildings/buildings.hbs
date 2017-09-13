@@ -22,6 +22,9 @@
     {{css "css/buildings.css"}}
     {{css "css/custom.css"}}
 {{/zone}}
+{{#zone "breadcrumbs"}}
+    <li>
+        <a href="{{@app.context}}/">
             <i class="icon fw fw-home"></i>
         </a>
     </li>
@@ -169,14 +172,14 @@
                                     <div class="row">
                                         <div class="col-lg-3 graph">
                                             <div class="sensor_graph">
-                                                <div id="div-chart-temp">
-                                                    <div class="chartWrapper" id="chartWrapper">
-                                                        <div id="y_axis_temp" class="custom_y_axis">Value</div>
+                                                <div id="div-chart-temp-{{num}}">
+                                                    <div class="chartWrapper" id="chartWrapper_{{num}}">
+                                                        <div id="y_axis_temp_{{num}}" class="custom_y_axis">Value</div>
                                                         <div class="legend_container">
-                                                            <div id="smoother" title="Smoothing"></div>
-                                                            <div id="legend_temp"></div>
+                                                            <div id="smoother_{{num}}" title="Smoothing"></div>
+                                                            <div id="legend_temp_{{num}}"></div>
                                                         </div>
-                                                        <div id="chart_temp" class="custom_rickshaw_graph"></div>
+                                                        <div id="chart_temp_{{num}}" class="custom_rickshaw_graph"></div>
                                                         <div class="custom_x_axis">Time</div>
                                                     </div>
                                                 </div>
@@ -184,14 +187,14 @@
                                         </div>
                                         <div class="col-lg-3 graph">
                                             <div class="sensor_graph">
-                                                <div id="div-chart-motion">
-                                                    <div class="chartWrapper" id="chartWrapper">
-                                                        <div id="y_axis_motion" class="custom_y_axis">Value</div>
+                                                <div id="div-chart-motion-{{num}}">
+                                                    <div class="chartWrapper" id="chartWrapper_{{num}}">
+                                                        <div id="y_axis_motion_{{num}}" class="custom_y_axis">Value</div>
                                                         <div class="legend_container">
-                                                            <div id="smoother" title="Smoothing"></div>
-                                                            <div id="legend_motion"></div>
+                                                            <div id="smoother_{{num}}" title="Smoothing"></div>
+                                                            <div id="legend_motion_{{num}}"></div>
                                                         </div>
-                                                        <div id="chart_motion" class="custom_rickshaw_graph"></div>
+                                                        <div id="chart_motion_{{num}}" class="custom_rickshaw_graph"></div>
                                                         <div class="custom_x_axis">Time</div>
                                                     </div>
                                                 </div>
@@ -199,14 +202,14 @@
                                         </div>
                                         <div class="col-lg-3 graph">
                                             <div class="sensor_graph">
-                                                <div id="div-chart-humidity">
-                                                    <div class="chartWrapper" id="chartWrapper">
-                                                        <div id="y_axis_humidity" class="custom_y_axis">Value</div>
+                                                <div id="div-chart-humidity-{{num}}">
+                                                    <div class="chartWrapper" id="chartWrapper_{{num}}">
+                                                        <div id="y_axis_humidity_{{num}}" class="custom_y_axis">Value</div>
                                                         <div class="legend_container">
-                                                            <div id="smoother" title="Smoothing"></div>
-                                                            <div id="legend_humidity"></div>
+                                                            <div id="smoother_{{num}}" title="Smoothing"></div>
+                                                            <div id="legend_humidity_{{num}}"></div>
                                                         </div>
-                                                        <div id="chart_humidity" class="custom_rickshaw_graph"></div>
+                                                        <div id="chart_humidity_{{num}}" class="custom_rickshaw_graph"></div>
                                                         <div class="custom_x_axis">Time</div>
                                                     </div>
                                                 </div>
@@ -214,20 +217,21 @@
                                         </div>
                                         <div class="col-lg-3 graph">
                                             <div class="sensor_graph">
-                                                <div id="div-chart-light">
-                                                    <div class="chartWrapper" id="chartWrapper">
-                                                        <div id="y_axis_light" class="custom_y_axis">Value</div>
+                                                <div id="div-chart-light-{{num}}">
+                                                    <div class="chartWrapper" id="chartWrapper_{{num}}">
+                                                        <div id="y_axis_light_{{num}}" class="custom_y_axis">Value</div>
                                                         <div class="legend_container">
-                                                            <div id="smoother" title="Smoothing"></div>
-                                                            <div id="legend_light"></div>
+                                                            <div id="smoother_{{num}}" title="Smoothing"></div>
+                                                            <div id="legend_light_{{num}}"></div>
                                                         </div>
-                                                        <div id="chart_light" class="custom_rickshaw_graph"></div>
+                                                        <div id="chart_light_{{num}}" class="custom_rickshaw_graph"></div>
                                                         <div class="custom_x_axis">Time</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                             {{else}}
@@ -241,6 +245,7 @@
                     </div>
                 </div>
             {{/each}}
+
         </div>
         <!-- /collapse -->
 
