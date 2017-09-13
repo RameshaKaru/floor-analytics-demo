@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="org.wso2.iot.senseme.api:war">
+    <output-path>$PROJECT_DIR$/component/api/target</output-path>
+    <root id="archive" name="senseme.war">
+      <element id="artifact" artifact-name="org.wso2.iot.senseme.api:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/building-monitor.iml" filepath="$PROJECT_DIR$/building-monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component/analytics/org.wso2.iot.senseme.analytics.iml" filepath="$PROJECT_DIR$/component/analytics/org.wso2.iot.senseme.analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feature/analytics-feature/org.wso2.iot.senseme.analytics.feature.iml" filepath="$PROJECT_DIR$/feature/analytics-feature/org.wso2.iot.senseme.analytics.feature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component/api/org.wso2.iot.senseme.api.iml" filepath="$PROJECT_DIR$/component/api/org.wso2.iot.senseme.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feature/backend-feature/org.wso2.iot.senseme.backend.feature.iml" filepath="$PROJECT_DIR$/feature/backend-feature/org.wso2.iot.senseme.backend.feature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component/ui/org.wso2.iot.senseme.ui.iml" filepath="$PROJECT_DIR$/component/ui/org.wso2.iot.senseme.ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feature/ui-feature/org.wso2.iot.senseme.ui.feature.iml" filepath="$PROJECT_DIR$/feature/ui-feature/org.wso2.iot.senseme.ui.feature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component/senseme-component.iml" filepath="$PROJECT_DIR$/component/senseme-component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feature/senseme-feature.iml" filepath="$PROJECT_DIR$/feature/senseme-feature.iml" />
+    </modules>
+  </component>
+</project>
