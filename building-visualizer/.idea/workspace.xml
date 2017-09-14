@@ -24,8 +24,8 @@
       <file leaf-file-name="buildings.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/component/ui/src/main/resources/jaggeryapps/buildingmonitor/app/pages/locationview.page.buildings/public/js/buildings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6560">
-              <caret line="789" column="0" lean-forward="false" selection-start-line="789" selection-start-column="0" selection-end-line="789" selection-end-column="0" />
+            <state relative-caret-position="15380">
+              <caret line="769" column="0" lean-forward="false" selection-start-line="769" selection-start-column="0" selection-end-line="769" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -34,57 +34,8 @@
       <file leaf-file-name="buildings.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/component/ui/src/main/resources/jaggeryapps/buildingmonitor/app/pages/locationview.page.buildings/buildings.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
+            <state relative-caret-position="1640">
               <caret line="262" column="9" lean-forward="false" selection-start-line="262" selection-start-column="9" selection-end-line="262" selection-end-column="9" />
-              <folding>
-                <element signature="e#1460#1480#0#HTML" expanded="true" />
-                <element signature="e#8333#8353#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Floor-Analysis-Averaged-Sensors-Execution-Plan-1.0.0.siddhiql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/component/analytics/src/main/resources/carbonapps/Floor-Analysis-Averaged-Sensors-Execution-Plan_1.0.0/Floor-Analysis-Averaged-Sensors-Execution-Plan-1.0.0.siddhiql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="860">
-              <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceTypeServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/component/api/src/main/java/org/wso2/iot/senseme/api/DeviceTypeServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="102" column="7" lean-forward="false" selection-start-line="102" selection-start-column="7" selection-end-line="102" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#27393#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceTypeConstants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/component/api/src/main/java/org/wso2/iot/senseme/api/constants/DeviceTypeConstants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="53" column="60" lean-forward="false" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#2982#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="floorview.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/component/ui/src/main/resources/jaggeryapps/buildingmonitor/app/units/locationview.unit.floorview/public/js/floorview.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6700">
-              <caret line="335" column="45" lean-forward="false" selection-start-line="335" selection-start-column="12" selection-end-line="335" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -233,8 +184,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -699,13 +648,15 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../repository/deployment/server/jaggeryapps/buildingmonitor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -967,7 +918,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -984,7 +935,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.282881" sideWeight="0.49811321" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3106689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31840795" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1347,36 +1298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/component/api/src/main/java/org/wso2/iot/senseme/api/DeviceTypeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="102" column="7" lean-forward="false" selection-start-line="102" selection-start-column="7" selection-end-line="102" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#27393#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/component/api/src/main/java/org/wso2/iot/senseme/api/constants/DeviceTypeConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="53" column="60" lean-forward="false" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#2982#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/component/analytics/src/main/resources/carbonapps/Floor-Analysis-Averaged-Sensors-Execution-Plan_1.0.0/Floor-Analysis-Averaged-Sensors-Execution-Plan-1.0.0.siddhiql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/component/ui/src/main/resources/jaggeryapps/buildingmonitor/app/units/cdmf.unit.device.type.wso2sense.analytics-view/public/js/devicetype-graph.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
@@ -1400,27 +1321,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/component/ui/src/main/resources/jaggeryapps/buildingmonitor/app/units/locationview.unit.floorview/public/js/floorview.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6700">
+        <state relative-caret-position="320">
           <caret line="335" column="45" lean-forward="false" selection-start-line="335" selection-start-column="12" selection-end-line="335" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/component/api/src/main/java/org/wso2/iot/senseme/api/constants/DeviceTypeConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="53" column="60" lean-forward="false" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/component/api/src/main/java/org/wso2/iot/senseme/api/DeviceTypeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="102" column="7" lean-forward="false" selection-start-line="102" selection-start-column="7" selection-end-line="102" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/component/analytics/src/main/resources/carbonapps/Floor-Analysis-Averaged-Sensors-Execution-Plan_1.0.0/Floor-Analysis-Averaged-Sensors-Execution-Plan-1.0.0.siddhiql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="860">
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/component/ui/src/main/resources/jaggeryapps/buildingmonitor/app/pages/locationview.page.buildings/buildings.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
+        <state relative-caret-position="1640">
           <caret line="262" column="9" lean-forward="false" selection-start-line="262" selection-start-column="9" selection-end-line="262" selection-end-column="9" />
-          <folding>
-            <element signature="e#1460#1480#0#HTML" expanded="true" />
-            <element signature="e#8333#8353#0#HTML" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/component/ui/src/main/resources/jaggeryapps/buildingmonitor/app/pages/locationview.page.buildings/public/js/buildings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6560">
-          <caret line="789" column="0" lean-forward="false" selection-start-line="789" selection-start-column="0" selection-end-line="789" selection-end-column="0" />
+        <state relative-caret-position="15380">
+          <caret line="769" column="0" lean-forward="false" selection-start-line="769" selection-start-column="0" selection-end-line="769" selection-end-column="0" />
           <folding />
         </state>
       </provider>
