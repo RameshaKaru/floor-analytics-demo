@@ -331,9 +331,23 @@ function hidePopup() {
             $("#historical-view").removeClass("hidden");
             selectedDate = e.date;
             var date = new Date(e.date);
+            var currentDate = new Date();
+            var difInHr = (currentDate - date)/3600000 ;
             date.setHours(date.getHours()-1);
-            historicalData = getHistoricalData("getHistoricalData","ORG_WSO2_FLOOR_SUMMARIZED_DEVICE_FLOOR_SENSORSTREAM", date.getTime());
-            updateHistoricData(historicalData[currentSliderValue]);
+
+            if(difInHr < 6){
+                historicalData = getHistoricalData("getHistoricalData","ORG_WSO2_FLOOR_SUMMARIZED6HR_DEVICE_FLOOR_SENSORSTREAM", date.getTime());
+                updateHistoricData(historicalData[currentSliderValue]);
+            }else if (difInHr < 24){
+                historicalData = getHistoricalData("getHistoricalData","ORG_WSO2_FLOOR_SUMMARIZED_DEVICE_FLOOR_SENSORSTREAM", date.getTime());
+                updateHistoricData(historicalData[currentSliderValue]);
+            }else if (difInHr < 168){
+                historicalData = getHistoricalData("getHistoricalData","ORG_WSO2_FLOOR_SUMMARIZED1HR_DEVICE_FLOOR_SENSORSTREAM", date.getTime());
+                updateHistoricData(historicalData[currentSliderValue]);
+            }else{
+                historicalData = getHistoricalData("getHistoricalData","ORG_WSO2_FLOOR_SUMMARIZED3HR_DEVICE_FLOOR_SENSORSTREAM", date.getTime());
+                updateHistoricData(historicalData[currentSliderValue]);
+            }
         });
 
         var date = new Date();

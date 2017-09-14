@@ -50,5 +50,12 @@ public class DeviceTypeConstants {
     public static final String FLOOR_ROLE = "building-%s-floor-%s";
     public static final String REALTIME_ANALYTICS_PERMISSION = "/permission/admin/device-mgt/realtime_analytics";
 
+    public static final String FLOOR_DEVICE_TABLE = "0RG_WSO2_FLOOR_DEVICE_SENSORSTREAM";
+    public static final String FLOOR_SUMMARIZED_DEVICE_TABLE = "0RG_WSO2_FLOOR_SUMMARIZED_DEVICE_FLOOR_SENSORSTREAM";
+    public static final String FLOOR_SUMMARIZED1HR_DEVICE_TABLE = "0RG_WSO2_FLOOR_SUMMARIZED1HR_DEVICE_FLOOR_SENSORSTREAM";
+    public static final String FLOOR_SUMMARIZED3HR_DEVICE_TABLE = "0RG_WSO2_FLOOR_SUMMARIZED3HR_DEVICE_FLOOR_SENSORSTREAM";
+    public static final String FLOOR_SUMMARIZED6HR_DEVICE_TABLE = "0RG_WSO2_FLOOR_SUMMARIZED6HR_DEVICE_FLOOR_SENSORSTREAM";
+
+
 }
 

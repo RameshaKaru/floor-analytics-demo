@@ -126,8 +126,11 @@ public class DeviceTypeServiceImpl implements DeviceTypeService {
     @GET
     @Consumes("application/json")
     @Produces("application/json")
-    public Response getSensorStats(@PathParam("deviceId") String deviceId, @QueryParam("from") long from,
-                                   @QueryParam("to") long to, @QueryParam("sensorType") String sensorType) {
+    public Response getSensorStats(@PathParam("deviceId") String deviceId,
+                                   @QueryParam("from") long from,
+                                   @QueryParam("to") long to,
+                                   @QueryParam("sensorType") String sensorType) {
+
         String fromDate = String.valueOf(from * 1000);
         String toDate = String.valueOf(to * 1000);
         String query = "deviceId:" + deviceId + " AND deviceType:" +
@@ -148,6 +151,21 @@ public class DeviceTypeServiceImpl implements DeviceTypeService {
                 sensorTableName = DeviceTypeConstants.HUMIDITY_EVENT_TABLE;
                 break;
         }
+
+        /*if (((to-from)/60000)<60){
+            sensorTableName = DeviceTypeConstants.FLOOR_DEVICE_TABLE;}
+        else if (((to-from)/60000)<120){
+            sensorTableName = DeviceTypeConstants.FLOOR_SUMMARIZED6hr_DEVICE_TABLE;}
+        else if (((to-from)/60000)<240){
+            sensorTableName = DeviceTypeConstants.FLOOR_SUMMARIZED_DEVICE_TABLE;}
+        else if (((to-from)/60000)<1440){
+            sensorTableName = DeviceTypeConstants.FLOOR_SUMMARIZED1hr_DEVICE_TABLE;}
+        else if (((to-from)/60000)<3000){
+            sensorTableName = DeviceTypeConstants.FLOOR_SUMMARIZED3hr_DEVICE_TABLE;}
+        else{
+            sensorTableName = DeviceTypeConstants.FLOOR_SUMMARIZED3hr_DEVICE_TABLE;
+        }*/
+
         try {
             if (!APIUtil.getDeviceAccessAuthorizationService().isUserAuthorized(new DeviceIdentifier(deviceId,
                     DeviceTypeConstants.DEVICE_TYPE))) {
