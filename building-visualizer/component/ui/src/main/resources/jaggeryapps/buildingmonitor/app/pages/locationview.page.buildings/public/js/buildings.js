@@ -262,7 +262,7 @@ function processMultiChart(outerDiv,chartDiv,chartData,name,graph,yAxis,legend) 
 
     graph.graph = new Rickshaw.Graph({
         element: document.getElementById(chartDiv),
-        width: 260,
+        width: $("#"+outerDiv).width() - 50,
         height: 300,
         stack: false,
         padding: {top: 0.2, left: 0.0, right: 0.0, bottom: 0.2},

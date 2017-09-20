@@ -120,5 +120,10 @@
                     serverRole="DataAnalyticsServer" />
 
 
+        <dependency artifact="Floor-Analysis-Data-Purge" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="Floor-Analysis-Data-Purge1hr" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="Floor-Analysis-Data-Purge3hr" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+
+
     </artifact>
 </artifacts>
